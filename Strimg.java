@@ -1,0 +1,6 @@
+/**
+ * Strimg
+ */
+public class Strimg {
+
+}
