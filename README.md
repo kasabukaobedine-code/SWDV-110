@@ -32,13 +32,8 @@ cannot open it.
 
 ### 3. `App` contains no SQL at all. Name two benefits of keeping SQL inside the DAO.
 
-- **Swap the UI without touching SQL.** Next week we are adding a JavaFX window
-  on top of the same DAO; the console `App` and the JavaFX `App` both call
-  `dao.getAll()` etc., and nothing in `BookDAO` changes.
-- **One place to fix bugs and change the schema.** If the schema changes
-  (say we add a `publisher` column) we edit `BookDAO` and `schema.sql` only,
-  not every menu handler. It also makes the DAO easy to unit-test against an
-  in-memory or temp-file database, as the provided `BookDAOTest` does.
+ Keeping SQL in the DAO makes it easier to work on the program. If we change the database later, we only need to update the DAO instead of changing the whole application.
+ It also makes testing easier because we can test the database code separately without having to run the entire program.
 
 ### 4. `queries.sql` results summary
 
@@ -47,8 +42,8 @@ cannot open it.
 | 1 | Every book, newest first | 10 |
 | 2 | Books by Andy Weir, oldest first | 3 |
 | 3 | Unread books, A–Z by title | 3 |
-| 4 | Titles containing 'the' (any case) | 4 |
+| 4 | Titles containing 'the' (any case) | 3 |
 | 5 | Book count per author, most first | 9 |
-| 6 | Average rating of rated books | 1 (value 4.125) |
+| 6 | Average rating of rated books | 1 (value 4.143) |
 | 7 | Mark Sapiens read with rating 4 | 1 row updated |
 | 8 | Delete unread + unrated + pre-2000 | 1 row deleted (The Pragmatic Programmer) |

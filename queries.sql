@@ -13,8 +13,8 @@ SELECT * FROM books WHERE author = 'Andy Weir' ORDER BY year ASC;
 SELECT * FROM books WHERE is_read = 0 ORDER BY title ASC;
 
 -- 4. Titles containing 'the' (any case)
---    SQLite LIKE is case-insensitive for ASCII by default  (4 rows: The Pragmatic Programmer,
---    The Martian, The Hobbit, and any title with "the" inside)
+--    SQLite LIKE is case-insensitive for ASCII by default  (3 rows: The Pragmatic Programmer,
+--    The Martian, The Hobbit)
 SELECT * FROM books WHERE title LIKE '%the%';
 
 -- 5. How many books each author has, most first  (9 rows, Andy Weir=3 first)
@@ -23,7 +23,7 @@ FROM books
 GROUP BY author
 ORDER BY book_count DESC, author ASC;
 
--- 6. Average rating of rated books (rating > 0)  (1 row: 4.125)
+-- 6. Average rating of rated books (rating > 0)  (1 row: 4.143)
 SELECT AVG(rating) AS avg_rating FROM books WHERE rating > 0;
 
 -- 7. Mark 'Sapiens' as read with a rating of 4  (1 row updated)
